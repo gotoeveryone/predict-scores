@@ -9,6 +9,7 @@ scikit-learn = "*"
 
 [dev-packages]
 autopep8 = "*"
+pycodestyle = "*"
 
 [requires]
 python_version = "3.9"
