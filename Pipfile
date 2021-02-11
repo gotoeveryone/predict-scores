@@ -6,10 +6,11 @@ name = "pypi"
 [packages]
 pandas = "*"
 scikit-learn = "*"
+pymysql = "*"
 
 [dev-packages]
 autopep8 = "*"
 pycodestyle = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3"

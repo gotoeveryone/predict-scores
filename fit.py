@@ -4,9 +4,11 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier
+from db import DBClient
 
 if __name__ == '__main__':
-    df = pd.read_csv(os.environ.get('FILE_PATH'))
+    client = DBClient()
+    df = client.fetch_scores()
 
     df_x = df.drop('winner', axis=1)
     df_y = df['winner']
