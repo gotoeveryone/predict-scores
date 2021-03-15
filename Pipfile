@@ -18,3 +18,5 @@ python_version = "3"
 
 [scripts]
 api = "python api.py"
+code_check = "pycodestyle ."
+code_format = "autopep8 --in-place --recursive ."
