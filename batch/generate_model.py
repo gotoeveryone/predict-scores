@@ -17,5 +17,7 @@ if __name__ == '__main__':
     dtc.fit(df_x, df_y)
     print(f'scope: {dtc.score(df_x, df_y)}')
 
+    model_dir = os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))) + '/models/'
     filename = 'finalized_model.sav'
-    pickle.dump(dtc, open(filename, 'wb'))
+    pickle.dump(dtc, open(model_dir + filename, 'wb'))

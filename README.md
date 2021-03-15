@@ -17,8 +17,8 @@ $ cp .env.example .env # Please edit the value.
 ## Run
 
 ```console
-$ # fit
-$ pipenv run python fit.py
-$ # predict
-$ pipenv run python predict.py
+$ # batch
+$ pipenv run generate_model
+$ # api
+$ pipenv run api
 ```
