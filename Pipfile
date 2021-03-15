@@ -1,12 +1,13 @@
 [[source]]
+name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pypi"
 
 [packages]
+flask = "*"
 pandas = "*"
-scikit-learn = "*"
 pymysql = "*"
+scikit-learn = "*"
 
 [dev-packages]
 autopep8 = "*"
@@ -14,3 +15,6 @@ pycodestyle = "*"
 
 [requires]
 python_version = "3"
+
+[scripts]
+api = "python api.py"
