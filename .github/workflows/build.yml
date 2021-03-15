@@ -1,0 +1,48 @@
+name: Build
+
+on: [push]
+
+jobs:
+  code_check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Setup pipenv
+        run: pip install pipenv
+
+      - name: Cache virtualenvs
+        uses: actions/cache@v1
+        id: app_cache
+        with:
+          path: ~/.local/share/virtualenvs
+          key: ${{ runner.OS }}-lib-${{ hashFiles('**/Pipfile.lock') }}
+
+      - name: Install dependencies
+        if: steps.app_cache.outputs.cache-hit != 'true'
+        run: pipenv install -d
+
+      - name: Execute code check
+        run: pipenv run code_check
+
+  notify_slack:
+    if: always()
+    needs:
+      - code_check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: technote-space/workflow-conclusion-action@v1
+      - name: Notify to Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ env.WORKFLOW_CONCLUSION }}
+          author_name: GitHub Actions
+          fields: repo,message,author,ref
+        env:
+          GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.NOTIFY_SLACK_WEBHOOK_URL }}

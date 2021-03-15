@@ -1,5 +1,7 @@
 # Predict Scores
 
+![Build Status](https://github.com/gotoeveryone/predict-scores/workflows/Build/badge.svg)
+
 ## Requirements
 
 - Python 3.7+
