@@ -14,6 +14,11 @@ api = Blueprint(
 DATE_FORMAT = re.compile('\\d{1,4}-\\d{1,2}-\\d{1,2}')
 
 
+@api.route('/', methods=['GET'])
+def healthcheck():
+    return jsonify({'status': 'ok'})
+
+
 @api.route('/predict', methods=['GET'])
 def get_predict():
     date = request.args.get('date')
