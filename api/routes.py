@@ -22,8 +22,8 @@ def healthcheck():
 @api.route('/predict', methods=['GET'])
 def get_predict():
     date = request.args.get('date')
-    pid1 = request.args.get('pid1')
-    pid2 = request.args.get('pid2')
+    pid1 = request.args.get('player1')
+    pid2 = request.args.get('player2')
     if (
         # date is invalid
         date is None or not DATE_FORMAT.match(date)

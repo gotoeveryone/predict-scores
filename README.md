@@ -17,7 +17,7 @@ $ cp .env.example .env # Please edit the value.
 ## Run
 
 ```console
-$ # batch
+$ # generate model
 $ pipenv run generate_model
 $ # api
 $ pipenv run api
