@@ -1,3 +1,6 @@
+# General
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -130,3 +133,10 @@ dmypy.json
 
 # Editor
 .vscode
+
+# Model
+finalized_model.sav
+
+# Google Drive settings
+settings.yaml
+credentials.json

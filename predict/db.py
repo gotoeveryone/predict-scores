@@ -5,9 +5,6 @@ import pymysql
 
 
 class DBClient:
-    def __init__(self):
-        self.user = os.environ.get('DB_USER')
-
     def connect(self):
         host = os.environ.get('DB_HOST')
         port = os.environ.get('DB_PORT', 3306)

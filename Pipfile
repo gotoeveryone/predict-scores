@@ -8,6 +8,7 @@ flask = "*"
 pandas = "*"
 pymysql = "*"
 scikit-learn = "*"
+pydrive = "*"
 
 [dev-packages]
 autopep8 = "*"
