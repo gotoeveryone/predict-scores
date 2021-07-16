@@ -12,6 +12,7 @@
 ```console
 $ pipenv install # When get dev-packages too, add `-d` option.
 $ cp .env.example .env # Please edit the value.
+$ cp settings.yaml.example settings.yaml # Please edit the value.
 ```
 
 ## Run

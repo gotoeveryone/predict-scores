@@ -6,6 +6,8 @@ import re
 from flask import Blueprint, jsonify, request
 import pandas as pd
 
+from predict.storage import StorageManager
+
 api = Blueprint(
     'api',
     __name__,
@@ -41,10 +43,8 @@ def get_predict():
     player1 = int(pid1)
     player2 = int(pid2)
 
-    model_dir = os.path.dirname(os.path.dirname(
-        os.path.abspath(__file__))) + '/models/'
-    filename = 'finalized_model.sav'
-    loaded_model = pickle.load(open(model_dir + filename, 'rb'))
+    f = StorageManager().get('predict_scores.sav')
+    loaded_model = pickle.load(f)
 
     df = pd.DataFrame()
     df['game_date'] = [datetime.strptime(date, '%Y-%m-%d').timestamp()]

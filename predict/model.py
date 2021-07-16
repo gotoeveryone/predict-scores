@@ -13,7 +13,7 @@ class Model:
     def __init__(self):
         self.__client = DBClient()
 
-    def generate(self):
+    def generate(self) -> str:
         df = self.__client.fetch_scores()
 
         x_train, x_test, y_train, y_test = train_test_split(
@@ -25,7 +25,9 @@ class Model:
         y_pred = dtc.predict(x_test)
         print(f'score: {accuracy_score(y_pred, y_test)}')
 
-        model_dir = os.path.dirname(os.path.dirname(
-            os.path.abspath(__file__))) + '/models/'
+        model_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         filename = 'finalized_model.sav'
-        pickle.dump(dtc, open(model_dir + filename, 'wb'))
+        filepath = os.path.join(model_dir, filename)
+        pickle.dump(dtc, open(filepath, 'wb'))
+
+        return filepath
