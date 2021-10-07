@@ -137,6 +137,5 @@ dmypy.json
 # Model
 finalized_model.sav
 
-# Google Drive settings
-settings.yaml
+# Google Drive credentials
 credentials.json
