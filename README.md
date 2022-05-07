@@ -4,21 +4,19 @@
 
 ## Requirements
 
-- Python 3.6
-- pipenv
+- Docker
 
 ## Setup
 
 ```console
-$ pipenv install # When get dev-packages too, add `-d` option.
 $ cp .env.example .env # Please edit the value.
 ```
 
 ## Run
 
 ```console
+$ docker compose up
+$
 $ # generate model
-$ pipenv run generate_model
-$ # api
-$ pipenv run api
+$ docker compose api pipenv run generate_model
 ```

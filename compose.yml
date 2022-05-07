@@ -9,11 +9,3 @@ services:
     ports:
       - "5000:5000"
     command: pipenv run api
-  batch:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: development
-    volumes:
-      - ./:/var/app
-    command: tail -f /dev/null
