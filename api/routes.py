@@ -48,7 +48,8 @@ def get_predict():
         f = StorageManager().get('predict_scores.sav')
         loaded_model = pickle.load(f)
     else:
-        with open(f'{path.dirname(path.abspath(__name__))}/finalized_model.sav', mode='rb') as f:
+        fp = f'{path.dirname(path.abspath(__name__))}/finalized_model.sav'
+        with open(fp, mode='rb') as f:
             loaded_model = pickle.load(f)
 
     df = pd.DataFrame()
