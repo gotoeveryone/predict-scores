@@ -21,7 +21,7 @@ pycodestyle = "*"
 python_version = "3.6"
 
 [scripts]
-api = "python app.py"
+api = "flask run --host=0.0.0.0"
 code_check = "pycodestyle ."
 code_format = "autopep8 --in-place --recursive ."
 generate_model = "python batch.py"
