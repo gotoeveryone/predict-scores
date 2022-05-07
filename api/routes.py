@@ -1,5 +1,6 @@
 from datetime import datetime
 import os
+from os import path
 import pickle
 import re
 
@@ -43,8 +44,12 @@ def get_predict():
     player1 = int(pid1)
     player2 = int(pid2)
 
-    f = StorageManager().get('predict_scores.sav')
-    loaded_model = pickle.load(f)
+    if not os.environ.get('DEBUG', False):
+        f = StorageManager().get('predict_scores.sav')
+        loaded_model = pickle.load(f)
+    else:
+        with open(f'{path.dirname(path.abspath(__name__))}/finalized_model.sav', mode='rb') as f:
+            loaded_model = pickle.load(f)
 
     df = pd.DataFrame()
     df['game_date'] = [datetime.strptime(date, '%Y-%m-%d').timestamp()]
