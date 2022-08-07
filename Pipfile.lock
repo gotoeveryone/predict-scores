@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "395e2916b5c25f5e4f36d870fb58c981c401cd4de1f81124601676df69c64f49"
+            "sha256": "db5c44179fa4aee296f946a7391351d997e62d8a436201aa942b626ffa85c45e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -486,11 +486,11 @@
         },
         "pydrive2": {
             "hashes": [
-                "sha256:14c239bcd3e6e65b771ad4e2d8f7ca991636c9aec82b730479a60368733a4fbb",
-                "sha256:f7bd19b4ff1ef6c0b922fb6ac55c0d94724ab537387ae4a1de797784d77463ab"
+                "sha256:ac29d6da1eff3e5f14d3da0af10ff0bf3d12448427ee4e99d2f8336663455483",
+                "sha256:ac7689e7a80ece3a49adfbafec35890c81b60fb55de5acee80d19c6f793edd81"
             ],
             "index": "pypi",
-            "version": "==1.10.0"
+            "version": "==1.10.1"
         },
         "pymysql": {
             "hashes": [
