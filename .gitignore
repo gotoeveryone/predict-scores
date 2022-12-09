@@ -139,3 +139,6 @@ finalized_model.sav
 
 # Google Drive credentials
 credentials.json
+
+# asdf
+.tool-versions
