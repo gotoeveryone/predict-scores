@@ -3,25 +3,58 @@ name: Build
 on: [push]
 
 jobs:
-  code_check:
+  code_check_for_api:
     runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: api
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.6
+          python-version: 3.12
 
       - name: Setup pipenv
         run: pip install pipenv
 
       - name: Cache virtualenvs
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: app_cache
         with:
           path: ~/.local/share/virtualenvs
-          key: ${{ runner.OS }}-lib-${{ hashFiles('**/Pipfile.lock') }}
+          key: ${{ runner.OS }}-lib-${{ hashFiles('api/Pipfile.lock') }}
+
+      - name: Install dependencies
+        if: steps.app_cache.outputs.cache-hit != 'true'
+        run: pipenv install -d
+
+      - name: Execute code check
+        run: pipenv run code_check
+
+  code_check_for_generate_model:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        working-directory: generate_model
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Setup pipenv
+        run: pip install pipenv
+
+      - name: Cache virtualenvs
+        uses: actions/cache@v4
+        id: app_cache
+        with:
+          path: ~/.local/share/virtualenvs
+          key: ${{ runner.OS }}-lib-${{ hashFiles('generate_model/Pipfile.lock') }}
 
       - name: Install dependencies
         if: steps.app_cache.outputs.cache-hit != 'true'
@@ -33,7 +66,8 @@ jobs:
   notify_slack:
     if: always()
     needs:
-      - code_check
+      - code_check_for_api
+      - code_check_for_generate_model
     runs-on: ubuntu-20.04
     steps:
       - uses: technote-space/workflow-conclusion-action@v3
