@@ -43,11 +43,11 @@
         },
         "chalice": {
             "hashes": [
-                "sha256:4dbc03d6add40652c652bdf9df48047b7a9ac7518f1c2311a0498eeb8a774c91",
-                "sha256:f0680391f6bdc633869f91e14b1f0997bb0109152bdcbd7840033c41131ecb63"
+                "sha256:ce6dc4b9ed131703af4ce2e70720bdcec841ced194ebbcde5ec9150f373f4e4e",
+                "sha256:fc49a49c77c0caed0ffd5019523c55bc9ddb91ded5ef2dbedb50200b8089baf9"
             ],
             "index": "pypi",
-            "version": "==1.31.0"
+            "version": "==1.31.1"
         },
         "click": {
             "hashes": [
@@ -161,11 +161,11 @@
         },
         "pip": {
             "hashes": [
-                "sha256:5052d7889c1f9d05224cd41741acb7c5d6fa735ab34e339624a614eaaa7e7d76",
-                "sha256:7fd9972f96db22c8077a1ee2691b172c8089b17a5652a44494a9ecb0d78f9149"
+                "sha256:ba0d021a166865d2265246961bec0152ff124de910c5cc39f1156ce3fa7c69dc",
+                "sha256:ea9bd1a847e8c5774a5777bb398c19e80bcd4e2aa16a4b301b718fe6f593aba2"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==23.3.2"
+            "version": "==24.0"
         },
         "python-dateutil": {
             "hashes": [
