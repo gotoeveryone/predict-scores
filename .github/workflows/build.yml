@@ -64,7 +64,7 @@ jobs:
         run: pipenv run code_check
 
   notify_slack:
-    if: always()
+    if: ${{ always() && !contains(github.ref, 'dependabot/') }}
     needs:
       - code_check_for_api
       - code_check_for_generate_model
