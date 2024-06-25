@@ -18,6 +18,7 @@ jobs:
 
       - name: Setup Python
         uses: actions/setup-python@v5
+        id: setup-python-generate-model
         with:
           python-version: 3.12
           cache: pipenv
@@ -28,6 +29,7 @@ jobs:
         run: pip install pipenv
 
       - name: Install dependencies
+        if: steps.setup-python-generate-model.outputs.cache-hit != 'true'
         run: pipenv install -d
 
       - name: Execute
