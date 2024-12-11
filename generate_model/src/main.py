@@ -1,5 +1,5 @@
-from io import BytesIO
 import pickle
+from io import BytesIO
 
 import pandas as pd
 from sklearn.metrics import accuracy_score
@@ -7,7 +7,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 
 from storage import StorageManager
-
 
 if __name__ == "__main__":
     manager = StorageManager()

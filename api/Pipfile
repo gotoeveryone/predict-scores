@@ -9,14 +9,12 @@ boto3 = "*"
 scikit-learn = "*"
 
 [dev-packages]
-autopep8 = "*"
-pycodestyle = "*"
+ruff = "*"
 
 [requires]
 python_version = "3.12"
 
 [scripts]
-code_check = "pycodestyle ."
-code_format = "autopep8 --in-place --recursive ."
-deploy = "bash -c 'pipenv requirements > requirements.txt && chalice deploy --stage prod'"
-start = "python main.py"
+code_check = "ruff check --select I"
+code_format = "bash -c 'ruff check --select I --fix && ruff format'"
+start = "python src/main.py"
