@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   code_check_for_api:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: api
@@ -31,7 +31,7 @@ jobs:
         run: pipenv run code_check
 
   code_check_for_generate_model:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: generate_model
@@ -62,7 +62,7 @@ jobs:
     needs:
       - code_check_for_api
       - code_check_for_generate_model
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: technote-space/workflow-conclusion-action@v3
       - name: Notify to Slack
