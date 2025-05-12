@@ -7,7 +7,7 @@ verify_ssl = true
 numpy = "~=2.2.5"
 pandas = "~=2.2.3"
 scikit-learn = "~=1.6.1"
-scipy = "~=1.15.2"
+scipy = "~=1.15.3"
 boto3 = "*"
 
 [dev-packages]
