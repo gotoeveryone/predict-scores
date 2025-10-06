@@ -4,7 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [packages]
-pandas = "~=2.3.2"
+pandas = "~=2.3.3"
 boto3 = "*"
 scikit-learn = "*"
 
